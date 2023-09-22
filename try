@@ -1,0 +1,23 @@
+!pip install netCDF4
+!pip install pyproj
+!pip install pyresample
+!pip install rioxarray
+!pip install gdal
+
+
+import sys
+#user_home = os.path.expanduser("~")
+sys.path.append('/content/drive/MyDrive/acolite/acolite-main')inputfile='/content/drive/MyDrive/acolite/imagensBrutas/LANDSAT/LC08_L1TP_217076_20230713_20230724_02_T1.zip'
+output='/content/drive/MyDrive/acolite/OUTPUT'
+
+settings = {"inputfile":inputfile,
+                "output":output,
+                "limit": [-23.01833784578499, -43.29383771703758, -22.666504011819637, -43.00407331274071],
+                "l2w_parameters":["tur_nechad2009"],
+                "oli_orange_band": False,
+                "cirrus_correction": True,
+                "dsf_interface_reflectance": True,
+                "dsf_residual_glint_correction":True,
+                "l2w_export_geotiff":True}
+
+ac.acolite.acolite_run(settings=settings)
